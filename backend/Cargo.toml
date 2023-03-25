@@ -15,10 +15,7 @@ futures = "0.3"
 tokio = { version = "1.14.0", features = ["macros", "rt-multi-thread"] }
 axum = { version = "0.3.4", features = ["tower-log"] }
 sqlx = { version = "0.5", features = ["runtime-tokio-native-tls", "postgres", "uuid", "time"] }
-
-# The `clap` beta gives us a much nicer way to define configuration parameters for our application.
-# Could switch to fragment to see if it would work better when getting variables from multiple sources.
-clap = "=3.0.0-beta.5"
+clap = { version = "4.1.13", features = ["derive", "env"] }
 
 serde = { version = "1.0.130", features = ["derive"] }
 
