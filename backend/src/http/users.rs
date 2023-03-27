@@ -231,6 +231,7 @@ async fn hash_password(password: String) -> Result<String> {
 }
 
 async fn verify_password(password: String, password_hash: String) -> Result<()> {
+    // TODO Why is this in a separate task? Is it because it panics?
     Ok(tokio::task::spawn_blocking(move || -> Result<()> {
         let hash = PasswordHash::new(&password_hash)
             .map_err(|e| anyhow::anyhow!("invalid password hash: {}", e))?;
